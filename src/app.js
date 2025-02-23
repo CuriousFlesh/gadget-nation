@@ -12,9 +12,16 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/auth', authRoutes); 
 app.use('/gadgets', gadgetRoutes);
+const usersRouter = require('./routes/users');  
+app.use('/api/users', usersRouter);
+
 
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the GADGET-NATION inventory' });
+});
+
+app.get('/api/users', (req, res) => {
+  res.json({ message: "Users endpoint working!" });
 });
 
 // Error handling middleware
