@@ -16,6 +16,9 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
+const db = require('./config/database');
+
+
 sequelize.sync().then(() => {
   console.log('Database synced');
   app.listen(PORT, () => {
